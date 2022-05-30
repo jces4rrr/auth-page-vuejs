@@ -5,9 +5,14 @@
     justify-content: center;
     align-items: center;
 
-    background-image: linear-gradient(to right, black , gray);
+    background-image: linear-gradient(to right, black , rgb(144, 101, 185));
     width: 100vw;
     height: 100vh;
+
+    a {
+        font-size: 12px;
+        color: #c12b8a;
+    }
 }
 
 .card{
@@ -15,7 +20,49 @@
     align-items: center;
 
     width: 500px;
-    height: 550px;
+    height: 500px;
 
     border-radius: 30px !important;
+}
+
+.input{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.button{
+    margin: 5px;
+}
+
+.GroupButton{
+    display: block;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.icon{
+    background-image: linear-gradient(to bottom right, #a248b7, #c12b8a, #df4aa9);  
+}
+
+.avatar{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.forgotPassword{
+    padding-top: 20px;
+    padding-right: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: end;
 }

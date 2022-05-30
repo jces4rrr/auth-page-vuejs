@@ -1,5 +1,17 @@
 <template>
-  <v-btn class="button">{{label}}</v-btn>
+  <v-row
+    align="center"
+    justify="space-around"
+  >
+    <v-btn
+     class="button"
+    >
+      <v-icon v-if="showIcon" left>
+        {{icon}}
+      </v-icon>
+      {{label}}
+    </v-btn>
+  </v-row>
 </template>
 
 <script>
@@ -9,6 +21,14 @@
       label: {
         type: String,
         default: ''
+      },
+      icon: {
+        type: String,
+        default: ''
+      },
+      showIcon: {
+        type: Boolean,
+        default: false
       }
     },
 

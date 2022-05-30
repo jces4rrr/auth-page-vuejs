@@ -1,29 +1,51 @@
 <template>
     <div class="loginPage">
         <v-card class="card">
+          <div class="avatar">
+            <v-avatar
+              size="80"
+            >
+              <v-icon class="icon" size="60">
+                mdi-account
+              </v-icon>
+            </v-avatar>
+          </div>
 
             <v-text-field
+                class="input"
                 v-model="email"
                 :error-messages="emailErrors"
                 label="E-mail"
+                :rules="[rulesEmail.required]"
                 required
                 @input="$v.email.$touch()"
                 @blur="$v.email.$touch()"
                 ></v-text-field>
 
             <v-text-field
+                class="input"
                 v-model="password"
                 :append-icon="showPassWord ? 'mdi-eye' : 'mdi-eye-off'"
-                :rules="[rules.required, rules.min]"
+                :rules="[rulesPassword.required, rulesPassword.min]"
                 :type="showPassWord ? 'text' : 'password'"
                 name="input-10-1"
-                label="Normal with hint text"
-                hint="At least 8 characters"
+                label="Senha"
                 counter
                 @click:append="showPassWord = !showPassWord"
             ></v-text-field>
 
-            <CustomButton label="Login"/>
+            <div class="GroupButton">
+              <CustomButton label="Login"/>
+              <div class="forgotPassword">
+               <a>Esqueci minha senha</a>
+              </div>
+            </div>
+
+            <v-divider></v-divider>
+
+            <div class="GroupButton">
+              <CustomButton label="Entrar com o Google" icon="mdi-google" showIcon="true"/>
+            </div>
         </v-card>
     </div>
 </template>
@@ -39,11 +61,13 @@ import CustomButton from '@/components/CustomButton/CustomButton.vue'
     data () {
       return {
         showPassWord: false,
+        email: '',
         password: '',
-        rules: {
-          required: value => !!value || 'Required.',
-          min: v => v.length >= 8 || 'Min 8 characters',
-          emailMatch: () => (`The email and password you entered don't match`),
+        rulesPassword: {
+          required: value => !!value || 'Digite sua senha',
+        },
+        rulesEmail: {
+          required: value => !!value || 'Digite seu e-mail',
         },
       }
     },
